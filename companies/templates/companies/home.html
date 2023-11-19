@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+
+{% block body %}
+    <div class="container flex">  
+        <h3 class="text-center mt-2sourc">List of the largest companies</h3><hr>
+    
+        {% include "includes/modalform.html" %}
+        <div class="container-lg border rounded mt-4">
+        <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Industry</th>
+                    <th>Revenue (USD millions)</th>
+                    <th>Revenue Growth</th>
+                    <th>Employees</th>
+                    <th>Headquarters</th>
+                </tr>
+            </thead>
+            <tbody>
+                 {% for company in companies %} 
+                    <tr>
+                        <td>{{ company.rank }}</td>
+                        <td>{{ company.name }}</td>
+                        <td>{{ company.industry }}</td>
+                        <td>{{ company.formatted_revenue }}</td>
+                        <td>{{ company.revenue_growth }}</td>
+                        <td>{{  company.employees  }}</td>
+                        <td>{{ company.headquarters }}</td>
+                    </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+    </div>
+    <div>
+    </div>
+{% endblock %}
